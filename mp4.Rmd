@@ -1,0 +1,31 @@
+---
+title: "Mini Project 4"
+author: "Kerry LeCure, Libby Leung, Madeleine Hickman"
+date: "11/27/2017"
+output: html_document
+---
+```{r, message=FALSE}
+library(mdsr) #required to connect to database
+library(RMySQL) #required to use SQL
+library(tidyverse) #needed to create graphic
+library(ggthemes) #needed to change theme of graphic
+db <- dbConnect_scidb(dbname = "imdb") #database
+```
+```{r}
+db %>%
+  dbGetQuery("SELECT * FROM info_type;")
+```
+```{r}
+db %>%
+  dbGetQuery("SELECT *
+             FROM movie_info;")
+```
+```{r}
+db %>% 
+  dbGetQuery("SELECT DISTINCT mi.movie_id, t.title, t.production_year, mi.info
+             FROM aka_title t
+             JOIN movie_info mi ON mi.movie_id = t.movie_id
+             WHERE mi.info_type_id = 97 AND t.kind_id = 1
+             AND t.production_year BETWEEN 1920 AND 2000
+             ORDER BY t.production_year;")
+```
