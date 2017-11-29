@@ -16,9 +16,19 @@ adventure <- db %>%
   dbGetQuery("SELECT DISTINCT mi.movie_id, t.title, t.production_year, mi.info
              FROM aka_title t
              JOIN movie_info mi ON mi.movie_id = t.movie_id
-             WHERE t.kind_id = 1
-             AND mi.info_type_id = 3
+             JOIN movie_companies mc ON mc.movie_id = mi.movie_id
+             JOIN company_name cn ON cn.id = mc.company_id
+             WHERE mi.info_type_id = 3
              AND mi.info = 'Adventure'
+             AND t.kind_id = 1
+             AND cn.country_code = '[us]'
+             AND NOT (t.id IS NULL OR
+             t.title IS NULL OR
+             t.kind_id IS NULL OR
+             t.production_year IS NULL OR
+             mi.movie_id IS NULL OR
+             mi.info IS NULL OR
+             cn.country_code IS NULL)
              AND t.production_year BETWEEN 1900 AND 2017
              ORDER BY t.production_year;")
 ```
@@ -29,5 +39,8 @@ adventuremovies <- adventure %>%
 ```
 ```{r}
 ggplot(adventuremovies, aes(x = production_year, y = count)) +
-  geom_bar(stat = "identity")
+  geom_bar(stat = "identity") +
+  geom_vline(xintercept = 1981) +
+  annotate("text", x = 1960, y = 400, label = "first Indiana Jones\nmovie released") +
+  theme_fivethirtyeight()
 ```
