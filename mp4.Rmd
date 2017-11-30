@@ -1,5 +1,5 @@
 ---
-title: "Mini Project 4"
+title: "somewhat interesting title here"
 author: "Kerry LeCure, Libby Leung, Madeleine Hickman"
 date: "11/27/2017"
 output: html_document
@@ -41,13 +41,27 @@ adventuremovies <- adventure %>%
 ggplot(adventuremovies, aes(x = production_year, y = count)) +
   geom_bar(stat = "identity") +
   labs(x = "Year", y = "Number of Adventure Movies Produced") +
-  geom_vline(xintercept = 1981) +
-  annotate("text", x = 1960, y = 400, label = "first Indiana Jones\nmovie released")
+  geom_vline(xintercept = 1980) +
+  annotate("text", x = 1960, y = 400, label = "first Indiana Jones\nmovie produced")
 ```
+<small>GitHub repository</small><sub>1</sub>
 
-Lede.
 
-Adventure movies are among the most popular movies, especially in the box office in terms of revenue, alongside comedy movies and action movies.<sup>1</sup> The ticket shares reflect this, and in a period from 1995 to 2017, they have had a share of 27.7% of all ticket sales.<sup>2</sup> In an interactive graph provided by www.the-numbers.com (http://www.the-numbers.com/live/cont/market/items_all_market_share_graph_iframe.php?movie_od_name_term=genre&cache_annual_postfix=genres&max_items=7&graph_category_text_plural=Genres), a pattern of ticket sales is similar to the number of adventure movies produced per year.
+Moviegoers are currently drawn to films that feature high levels of action and can take us around the country or even the globe. Superhero movies are on the rise with DC Comics and Marvel having their own movie universes. It feels as though most of the movies that we see advertising for are adventure based, so are they really on the rise?
 
-<sup>1</sup>https://www.statista.com/statistics/188658/movie-genres-in-north-america-by-box-office-revenue-since-1995/</br>
-<sup>2</sup> http://www.the-numbers.com/market/genres
+Adventure movies are among the most popular movies, especially in the box office in terms of revenue, alongside comedy movies and action movies.<sup>2</sup> Subgenres of adventure movies include pirate films, distaster films, and the very popular subgenre of superhero films. It's also a genre that is easily combined with others, such as action, fantasy, or science fiction films. Though this genre is very popular, it does experience ups and downs in the amount of films produced per year.
+
+The ticket shares reflect this, and in a period from 1995 to 2017, they have had a share of 27.7% of all ticket sales.<sup>2</sup> In an interactive graph provided by www.the-numbers.com (http://www.the-numbers.com/live/cont/market/items_all_market_share_graph_iframe.php?movie_od_name_term=genre&cache_annual_postfix=genres&max_items=7&graph_category_text_plural=Genres), a pattern of ticket sales is similar to the number of adventure movies produced per year. This of course could correlate with the the fact there are less movies to buy tickets for, or perhaps previous years' box office rates affect what will be produced later.
+
+Less adventure movies were produced in 2016 as opposed to 2015—the movies from 2016 include Justice League, Thor: Ragnarok, and Wonder Woman, all of which preformed well and come with a lot of hype. However, movies produced in 2015 included Suicide Squad, Batman vs Superman, Fantastic Beasts and Where to Find Them, and Deadpool, all of which came with a lot of hype—whether or not they were actually well recieved by the audience is another topic. Though a few of these movies had a fair amount of criticism, they all did excellently at the box office, both domestically and globally.
+
+![Box office ROI of films by genre, 2003-2012 from IndieWire](http://dl9fvu4r30qs1.cloudfront.net/40/03/7b85079b4830928d0b87f28cca2c/return-on-investment-by-genre.jpg)
+
+However, as opposed to adventure films, documentaries are highly profitable and on the rise. Though a considerable amount of money is made in return, people really dig documentaries and horror films. This doesn't necessarily tell the whole story, however, since documentaries typically work on significantly lower budgets than adventure movies—the typical budget for a documentary is $1 million.<sup>4</sup> This contrasts with the significantly higher budgets for adventure movies (especially successful ones) as those tend to rely more on their stars, and thus will have higher budgets. While a documentary can be more profitable, that does not necessarily mean the amount of money it generated is equal to the amount of money an adventure movie generates. The determining factor in the two different genres' success is also quite different—documentaries require an interesting topic, while adventure movies tend to need star power and an interesting concept, making adventure movies significantly more expensive off the bat.
+
+In any case, on average adventure movies are on the rise, even with the context that more movies are being made today than before. Though there are ups and downs in how many films are produced in a production year, ticket sales still show that adventure movies are extremely popular—thus, they are extremely profitable. Let's be real, we all just want to make money.
+
+<sup>1</sup>https://github.com/kerrylecure/sds192-mp4 </br>
+<sup>2</sup>https://www.statista.com/statistics/188658/movie-genres-in-north-america-by-box-office-revenue-since-1995/ </br>
+<sup>3</sup>http://www.the-numbers.com/market/genres </br>
+<sup>4</sup>http://www.indiewire.com/2013/10/heres-what-you-need-to-know-to-sell-films-in-each-of-12-genres-33950/
