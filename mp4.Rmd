@@ -45,7 +45,7 @@ ggplot(adventuremovies, aes(x = production_year, y = count)) +
   geom_vline(xintercept = 1980) +
   annotate("text", x = 1960, y = 400, label = "first Indiana Jones\nmovie produced")
 ```
-<small>GitHub repository</small><sub>1</sub>
+</br><small>GitHub repository</small><sub>1</sub>
 
 
 Moviegoers are currently drawn to films that feature high levels of action and can take us around the country or even the globe. Superhero movies are on the rise with DC Comics and Marvel having their own movie universes. It feels as though most of the movies that we see advertising for are adventure based, so are they really on the rise?
