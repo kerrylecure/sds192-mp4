@@ -3,6 +3,7 @@ title: "somewhat interesting title here"
 author: "Kerry LeCure, Libby Leung, Madeleine Hickman"
 date: "11/27/2017"
 output: html_document
+code_folding: hide
 ---
 ```{r, message=FALSE}
 library(mdsr) 
