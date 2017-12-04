@@ -47,7 +47,7 @@ ggplot(adventuremovies, aes(x = production_year, y = count)) +
 ```
 </br><small>GitHub repository</small><sub>1</sub>
 
-
+  
 Moviegoers are currently drawn to films that feature high levels of action and can take us around the country or even the globe. Superhero movies are on the rise with DC Comics and Marvel having their own movie universes. It feels as though most of the movies that we see advertising for are adventure based, so are they really on the rise?
 
 Adventure movies are among the most popular movies, especially in the box office in terms of revenue, alongside comedy movies and action movies.<sup>2</sup> Subgenres of adventure movies include pirate films, distaster films, and the very popular subgenre of superhero films. It's also a genre that is easily combined with others, such as action, fantasy, or science fiction films. Though this genre is very popular, it does experience ups and downs in the amount of films produced per year.
