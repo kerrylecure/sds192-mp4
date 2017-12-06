@@ -46,12 +46,11 @@ ggplot(adventuremovies, aes(x = production_year, y = count)) + #to create axes
   geom_vline(xintercept = 1980) + #show when Indiana Jones, a popular adventure movie, was made
   annotate("text", x = 1960, y = 400, label = "first Indiana Jones\nmovie produced") #to give context
 ```
-</br><small>GitHub repository</small><sub>1</sub>
+</br><small>GitHub repository[^1]</small>
 
 From the Pirates of the Caribbean movies to the Harry Potter film series, Americans are used to seeing adventure movies top the charts. In fact, 14 out of 20 of the highest grossing movies in the past 20 years has been an adventure film. We are captivated by their dramatic fighting and ever so real graphics. But what if this isn’t what people want in the future? There has to be a time where these movie plots get old and people are not interested in them anymore; maybe that time is sooner than we think.
  
-
-Adventure movies are among the most popular movies, especially in the box office in terms of revenue, alongside comedy movies and action movies.<sup>2</sup> Subgenres of adventure movies include pirate films, disaster films, and the very popular subgenre of superhero films. It's also a genre that is easily combined with others, such as action, fantasy, or science fiction films. The ticket shares reflect this popularity because in a period from 1995 to 2017, they have had a share of 27.7% of all ticket sales.<sup>2</sup> In an interactive graph provided by www.the-numbers.com (http://www.the-numbers.com/live/cont/market/items_all_market_share_graph_iframe.php?movie_od_name_term=genre&cache_annual_postfix=genres&max_items=7&graph_category_text_plural=Genres), a pattern of ticket sales is similar to the number of adventure movies produced per year. This of course could correlate with the fact there are less movies to buy tickets for, or perhaps previous years' box office rates affect what will be produced later. However, this might be the case the production of adventure movies have declined within the past years. Factors such as large budgets, and technological advances contribute to this trend.
+Adventure movies are among the most popular movies, especially in the box office in terms of revenue, alongside comedy movies and action movies.[^2] Subgenres of adventure movies include pirate films, disaster films, and the very popular subgenre of superhero films. It's also a genre that is easily combined with others, such as action, fantasy, or science fiction films. The ticket shares reflect this popularity because in a period from 1995 to 2017, they have had a share of 27.7% of all ticket sales.[^2] In an interactive graph provided by [The Numbers](http://www.the-numbers.com/live/cont/market/items_all_market_share_graph_iframe.php?movie_od_name_term=genre&cache_annual_postfix=genres&max_items=7&graph_category_text_plural=Genres), a pattern of ticket sales is similar to the number of adventure movies produced per year. This of course could correlate with the fact there are less movies to buy tickets for, or perhaps previous years' box office rates affect what will be produced later. However, this might be the case the production of adventure movies have declined within the past years. Factors such as large budgets, and technological advances contribute to this trend.
 
 Looking at the overall graph, there is no doubt that the productions of overall movies produced have risen over the past generations. However there is an ongoing increasing and decreasing trend between adventure movies. For example there was a big increase during the 1950s and the 1990s to early 2000s.This first increase could be the cause of a new emerging genre. Many moviegoers figured out the existence of adventure movies and were captivated by them. Thus, this encouraged the movie directors to create more movies. However, during the 1960’s, Hollywood was going through a renovation. Companies were buying out movie corporations.  This lead into a decrease in adventure movies being produced. Since money was being shifted around, there was not enough money to produce a well adventure movie for the customers to see. As a result, since the corporations did not have sufficient amount of money, directors had to shift the genre of movie they were making to accommodate the budget they had.
 
@@ -60,72 +59,9 @@ As for the increase in the 1990’s, many Disney movies were created and then in
 
 
 ![Box office ROI of films by genre, 2003-2012 from IndieWire](http://dl9fvu4r30qs1.cloudfront.net/40/03/7b85079b4830928d0b87f28cca2c/return-on-investment-by-genre.jpg)
-```{r}
-docs <- db %>% 
-  dbGetQuery("SELECT DISTINCT mi.movie_id, t.title, t.production_year, mi.info
-             FROM aka_title t
-             JOIN movie_info mi ON mi.movie_id = t.movie_id
-             JOIN movie_companies mc ON mc.movie_id = mi.movie_id
-             JOIN company_name cn ON cn.id = mc.company_id
-             WHERE mi.info_type_id = 3
-             AND mi.info = 'Documentary'
-             AND t.kind_id = 1
-             AND cn.country_code = '[us]'
-             AND NOT (t.id IS NULL OR
-             t.title IS NULL OR
-             t.kind_id IS NULL OR
-             t.production_year IS NULL OR
-             mi.movie_id IS NULL OR
-             mi.info IS NULL OR
-             cn.country_code IS NULL)
-             AND t.production_year BETWEEN 1900 AND 2017
-             ORDER BY t.production_year;")
-#this data sorted for adventure movies in the IMDB. it selected for the genre of 'Documentary' and also for movies made in the US. it was sorted from 1900 to 2017 to see trends since a little before movies had sound to now. peces of data that had NULL or NA were filtered out
-```
-```{r}
-docsgraph <- docs %>%
-  group_by(production_year) %>% #to graph x axis
-  summarize(count = n()) #to see how many documentaries are produced per year
-```
-```{r}
-ggplot(docsgraph, aes(x = production_year, y = count)) + #to graph azes
-  geom_bar(stat = "identity") + #to make graph a bar graph
-  labs(x = "Year", y = "Number of Documentaries Produced") #renaming axes
-```
 </br>
 However, as opposed to adventure films, documentaries are highly profitable and on the rise. Though a considerable amount of money is made in return, people really dig documentaries. This doesn't necessarily tell the whole story, however, since documentaries typically work on significantly lower budgets than adventure movies—the typical budget for a documentary is $1 million.<sup>4</sup>. This contrasts with the significantly higher budgets for adventure movies (especially successful ones) as those tend to rely more on their stars, and thus will have higher budgets. The movie that currently holds the title for most expensive movie ever produced is an adventure movie, Pirates of the Caribbean: On Stranger Tides, with a total budget of a staggering $378.5 million dollars. This range of how much making an adventure movie vs. making a documentary can contribute to ultimately the quantity of the movies made. Money is an issue when it comes to producing movies. If directors do not have the right budget, the movie is not going to be made period.  This factor illustrates the continuous rise of documentaries produced in the past five years.
-```{r}
-comedy <- db %>% 
-  dbGetQuery("SELECT DISTINCT mi.movie_id, t.title, t.production_year, mi.info
-             FROM aka_title t
-             JOIN movie_info mi ON mi.movie_id = t.movie_id
-             JOIN movie_companies mc ON mc.movie_id = mi.movie_id
-             JOIN company_name cn ON cn.id = mc.company_id
-             WHERE mi.info_type_id = 3
-             AND mi.info = 'Comedy'
-             AND t.kind_id = 1
-             AND cn.country_code = '[us]'
-             AND NOT (t.id IS NULL OR
-             t.title IS NULL OR
-             t.kind_id IS NULL OR
-             t.production_year IS NULL OR
-             mi.movie_id IS NULL OR
-             mi.info IS NULL OR
-             cn.country_code IS NULL)
-             AND t.production_year BETWEEN 1900 AND 2017
-             ORDER BY t.production_year;")
-#this data sorted for adventure movies in the IMDB. it selected for the genre of 'Comedy' and also for movies made in the US. it was sorted from 1900 to 2017 to see trends since a little before movies had sound to now. peces of data that had NULL or NA were filtered out
-```
-```{r}
-comedymovies <- comedy %>%
-  group_by(production_year) %>% #to graph x axis
-  summarize(count = n()) #to see how many comedy movies were made per year
-```
-```{r}
-ggplot(comedymovies, aes(x = production_year, y = count)) + #to graph axes
-  geom_bar(stat = "identity") + #to make graph a bar graph
-  labs(x = "Year", y = "Number of Comedy Movies Produced") #rename axes
-```
+
 ```{r}
 movies <- db %>% 
   dbGetQuery("SELECT DISTINCT mi.movie_id, t.title, t.production_year, mi.info
@@ -160,7 +96,5 @@ ggplot(moviegraph, aes(x = production_year, y = count, fill = info)) + #to creat
 ```
 </br>It is clear that the popularity of adventure movies goes through different generations. Sometimes it is a hit like in the 1950’s and 90’s and other times it is not. Therefore, directors produce movies in other genres like comedy. Though the sales tickets of adventure movies are still high, we may be living in a fad. The steady decease of production in adventure movies depict that they are becoming less popular to make. With that said, it may lose its popularity until the next generation. So adventure buffs, go see your adventure movies now because they might not be as readily available in the future.
 
-<sup>1</sup>https://github.com/kerrylecure/sds192-mp4 </br>
-<sup>2</sup>https://www.statista.com/statistics/188658/movie-genres-in-north-america-by-box-office-revenue-since-1995/ </br>
-<sup>3</sup>http://www.the-numbers.com/market/genres </br>
-<sup>4</sup>http://www.indiewire.com/2013/10/heres-what-you-need-to-know-to-sell-films-in-each-of-12-genres-33950/
+[^1]: https://github.com/kerrylecure/sds192-mp4
+[^2]: https://www.statista.com/statistics/188658/movie-genres-in-north-america-by-box-office-revenue-since-1995/
