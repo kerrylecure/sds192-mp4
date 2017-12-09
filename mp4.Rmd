@@ -1,5 +1,5 @@
 ---
-title: "somewhat interesting title here"
+title: "Even Superheroes Can't Fight This Movie Trend"
 author: "Kerry LeCure, Libby Leung, Madeleine Hickman"
 date: "11/27/2017"
 output:
