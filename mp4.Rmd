@@ -6,8 +6,6 @@ output:
   html_document:
     code_folding: hide
 ---
-<<<<<<< HEAD
-  
 From the Pirates of the Caribbean movies to the Harry Potter film series, Americans are used to seeing adventure movies top the charts. In fact, 14 out of 20 of the highest grossing movies in the past 20 years has been an adventure film. We are captivated by their dramatic fighting and ever so real graphics. As a result, we would not think of adventure movies being anywhere else but the top.
 
 In the past five years, the amount of adventure movies that have been produced have been decreasing. Though as a society, adventure movies have been rated highly by critics and by the audience. As a result, people question in the future where the popularity and production of adventure movies will stand. However, they should not as the continue gross, the consistency of the trend, and the popularity keeps the genre alive. 
@@ -125,10 +123,7 @@ ggplot(comedymovies, aes(x = production_year, y = count)) +
   geom_bar(stat = "identity") +
   labs(x = "Year", y = "Number of Comedy Movies Produced")
 ```
-=======
 
-
->>>>>>> bd3ca0b464419fa3c0ad9df9640b8345ff2f9041
 ```{r}
 movies <- db %>% 
   dbGetQuery("SELECT DISTINCT mi.movie_id, t.title, t.production_year, mi.info
