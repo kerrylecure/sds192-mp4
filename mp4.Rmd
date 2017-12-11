@@ -44,8 +44,8 @@ adventuremovies <- adventure %>%
 ggplot(adventuremovies, aes(x = production_year, y = count)) + #to create axes
   geom_bar(stat = "identity") + #to make into a bar graph
   labs(x = "Year", y = "Number of Adventure Movies Produced") + #rename axes
-  geom_vline(xintercept = 1980) + #show when Indiana Jones, a popular adventure movie, was made
-  annotate("text", x = 1960, y = 400, label = "first Indiana Jones\nmovie produced") #to give context
+  geom_vline(xintercept = 1992) + #show when Indiana Jones, a popular adventure movie, was made
+  annotate("text", x = 1980, y = 400, label = "first Jurassic Park\nmovie produced") #to give context
 ```
 From the Pirates of the Caribbean movies to the Harry Potter film series, Americans are used to seeing adventure movies top the charts. In fact, 14 out of 20 of the highest grossing movies in the past 20 years has been an adventure film. We are captivated by their dramatic fighting and ever so real graphics. As a result, we would not think of adventure movies being anywhere else but the top.
 
