@@ -4,6 +4,7 @@ author: "Kerry LeCure, Libby Leung, Madeleine Hickman"
 date: "`r format(Sys.time())`"
 output:
   html_document:
+    theme: cosmo
     code_folding: hide
 ---
 From the Pirates of the Caribbean movies to the Harry Potter film series, Americans are used to seeing adventure movies top the charts. In fact, 14 out of 20 of the highest grossing movies in the past 20 years has been an adventure film. We are captivated by their dramatic fighting and ever so real graphics. As a result, we would not think of adventure movies being anywhere else but the top.
@@ -59,70 +60,7 @@ ggplot(adventuremovies, aes(x = production_year, y = count)) + #to create axes
 Though there is an apparent decrease in adventure movies in the past five years, we might just be living in this blip. Based on history we have experienced this before. . For example there was a big increase during the 1950s and the 1990s to early 2000s.This first increase could be the cause of a new emerging genre. Many moviegoers figured out the existence of adventure movies and were captivated by them. Thus, this encouraged the movie directors to create more movies. However, during the 1960’s, Hollywood was going through a renovation. Companies were buying out movie corporations.  This lead into a decrease in adventure movies being produced. Since money was being shifted around, there was not enough money to produce a well adventure movie for the customers to see. As a result, since the corporations did not have sufficient amount of money, directors had to shift the genre of movie they were making to accommodate the budget they had.
 
 Keeping this in mind, this ongoing increasing and decreasing trend does not matter in the long run. It is seen generation after generation people do enjoy watching adventure movies. They create a sense of escape as they can feel like the heroine fighting through injustices of the world. Many directors over the years know that adventure movies are a popular genre for people to see. People would rather watch an adventure over other genre movies because of the captivating plot and characters. As a result, directors are willing to continue making different types of adventure movies because people are willing to come back to theme. This concept is shown in the graph as every time the number of movies decreases, after a couple of years, the movies produced always goes back up with a higher increasing rate. 
-
-```{r}
-docs <- db %>% 
-  dbGetQuery("SELECT DISTINCT mi.movie_id, t.title, t.production_year, mi.info
-             FROM aka_title t
-             JOIN movie_info mi ON mi.movie_id = t.movie_id
-             JOIN movie_companies mc ON mc.movie_id = mi.movie_id
-             JOIN company_name cn ON cn.id = mc.company_id
-             WHERE mi.info_type_id = 3
-             AND mi.info = 'Documentary'
-             AND t.kind_id = 1
-             AND cn.country_code = '[us]'
-             AND NOT (t.id IS NULL OR
-             t.title IS NULL OR
-             t.kind_id IS NULL OR
-             t.production_year IS NULL OR
-             mi.movie_id IS NULL OR
-             mi.info IS NULL OR
-             cn.country_code IS NULL)
-             AND t.production_year BETWEEN 1900 AND 2017
-             ORDER BY t.production_year;")
-```
-```{r}
-docsgraph <- docs %>%
-  group_by(production_year) %>%
-  summarize(count = n())
-```
-```{r}
-ggplot(docsgraph, aes(x = production_year, y = count)) +
-  geom_bar(stat = "identity") +
-  labs(x = "Year", y = "Number of Documentaries Produced")
-```
 </br>However, as opposed to adventure films, documentaries are highly profitable and on the rise. A considerable amount of money is made in return, people really dig documentaries. This doesn't necessarily tell the whole story, however, since documentaries typically work on significantly lower budgets than adventure movies—the typical budget for a documentary is $1 million. This contrasts with the significantly higher budgets for adventure movies (especially successful ones) as those tend to rely more on their stars, and thus will have higher budgets. 
-```{r}
-comedy <- db %>% 
-  dbGetQuery("SELECT DISTINCT mi.movie_id, t.title, t.production_year, mi.info
-             FROM aka_title t
-             JOIN movie_info mi ON mi.movie_id = t.movie_id
-             JOIN movie_companies mc ON mc.movie_id = mi.movie_id
-             JOIN company_name cn ON cn.id = mc.company_id
-             WHERE mi.info_type_id = 3
-             AND mi.info = 'Comedy'
-             AND t.kind_id = 1
-             AND cn.country_code = '[us]'
-             AND NOT (t.id IS NULL OR
-             t.title IS NULL OR
-             t.kind_id IS NULL OR
-             t.production_year IS NULL OR
-             mi.movie_id IS NULL OR
-             mi.info IS NULL OR
-             cn.country_code IS NULL)
-             AND t.production_year BETWEEN 1900 AND 2017
-             ORDER BY t.production_year;")
-```
-```{r}
-comedymovies <- comedy %>%
-  group_by(production_year) %>%
-  summarize(count = n())
-```
-```{r}
-ggplot(comedymovies, aes(x = production_year, y = count)) +
-  geom_bar(stat = "identity") +
-  labs(x = "Year", y = "Number of Comedy Movies Produced")
-```
 
 ```{r}
 movies <- db %>% 
