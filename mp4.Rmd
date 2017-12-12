@@ -51,7 +51,9 @@ From the Pirates of the Caribbean movies to the Harry Potter film series, Americ
 
 In the past five years, the amount of adventure movies that have been produced have been decreasing. Though as a society, adventure movies have been rated highly by critics and by the audience. As a result, people question in the future where the popularity and production of adventure movies will stand. However, they should not as the continue gross, the consistency of the trend, and the popularity keeps the genre alive. 
 
-Adventure movies are among the most popular movies, especially in the box office in terms of revenue, alongside comedy movies and action movies.[^2] Subgenres of adventure movies include pirate films, disaster films, and the very popular subgenre of superhero films. It's also a genre that is easily combined with others, such as action, fantasy, or science fiction films. The ticket shares reflect this popularity because in a period from 1995 to 2017, they have had a share of 27.7% of all ticket sales.[^2] In an interactive graph provided by [Stony Brook University](www3.cs.stonybrook.edu/~skiena/591/final_projects/movie_gross/), this shows the gross rate for different genre of movies between 2011 and 2014. As a result, adventure movies are on top exemplifying its popularity with their audience. People are willing to go see an adventure movie when there are released. They rather go see an adventure movie rather than any other genre based on the gross of each genre. Thus increasing the ticket sales of the adventure genre. Therefore the relationship between the number of movies produced and the grossing rate does not influence the popularity of adventure movies.
+![Courtesy of Stony Brook University](http://www3.cs.stonybrook.edu/~skiena/591/final_projects/movie_gross/img/avg_gross.jpg)
+
+Adventure movies are among the most popular movies, especially in the box office in terms of revenue, alongside comedy movies and action movies.[^1] Subgenres of adventure movies include pirate films, disaster films, and the very popular subgenre of superhero films. It's also a genre that is easily combined with others, such as action, fantasy, or science fiction films. The ticket shares reflect this popularity because in a period from 1995 to 2017, they have had a share of 27.7% of all ticket sales.[^1] In an interactive graph provided by Stony Brook University, this shows the gross rate for different genre of movies between 2011 and 2014. As a result, adventure movies are on top exemplifying its popularity with their audience. People are willing to go see an adventure movie when there are released. They rather go see an adventure movie rather than any other genre based on the gross of each genre. Thus increasing the ticket sales of the adventure genre. Therefore the relationship between the number of movies produced and the grossing rate does not influence the popularity of adventure movies.
 
 ```{r}
 movies <- db %>% 
@@ -85,7 +87,7 @@ ggplot(moviegraph, aes(x = production_year, y = count, fill = info)) + #to creat
   geom_bar(stat = "identity", position = "dodge") + #to make graph a bar graph and have the bars next to one another
   labs(x = "Year", y = "Number of Movies Produced") #to rename the axes
 ```
-</br><small>GitHub repository[^1]</small>
+</br><small>GitHub repository[^2]</small>
 
 Though there is an apparent decrease in adventure movies in the past five years, we might just be living in this blip. Based on history we have experienced this before. . For example there was a big increase during the 1950s and the 1990s to early 2000s.This first increase could be the cause of a new emerging genre. Many moviegoers figured out the existence of adventure movies and were captivated by them. Thus, this encouraged the movie directors to create more movies. However, during the 1960’s, Hollywood was going through a renovation. Companies were buying out movie corporations.  This lead into a decrease in adventure movies being produced. Since money was being shifted around, there was not enough money to produce a well adventure movie for the customers to see. As a result, since the corporations did not have sufficient amount of money, directors had to shift the genre of movie they were making to accommodate the budget they had.
 
@@ -97,5 +99,5 @@ The movie that currently holds the title for most expensive movie ever produced 
 
 There is no doubt that we are currently living in an age of decreasing adventure movies. However, adventure buffs should not worry as they will go up in the near future. Sales tickets of in adventure movies are still high. With that said, people are willing to go see adventure movies. Though they do take a hefty amount of money to make, it is all worth it from the ticket sales. Therefore, this big revenue of money drives the directors to make more of these movies. So if you’re worried that adventure movies fading out, do not be because they will be back and better than ever.
 
-[^1]: https://github.com/kerrylecure/sds192-mp4
-[^2]: https://www.statista.com/statistics/188658/movie-genres-in-north-america-by-box-office-revenue-since-1995/
+[^1]: https://www.statista.com/statistics/188658/movie-genres-in-north-america-by-box-office-revenue-since-1995/
+[^2]: https://github.com/kerrylecure/sds192-mp4
