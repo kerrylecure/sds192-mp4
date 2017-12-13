@@ -42,7 +42,7 @@ adventuremovies <- adventure %>%
 ```
 ```{r}
 ggplot(adventuremovies, aes(x = production_year, y = count)) + #to create axes
-  geom_bar(stat = "identity") + #to make into a bar graph
+  geom_line() + #to make a trend line
   labs(x = "Year", y = "Number of Adventure Movies Produced") + #rename axes
   geom_vline(xintercept = 1992) + #show when Indiana Jones, a popular adventure movie, was made
   annotate("text", x = 1980, y = 400, label = "first Jurassic Park\nmovie produced") #to give context
@@ -83,8 +83,8 @@ moviegraph <- movies %>%
   summarize(count = n()) #to see how many of each movie was made per year
 ```
 ```{r}
-ggplot(moviegraph, aes(x = production_year, y = count, fill = info)) + #to create axes and split the three genres up into their own categories in the legend
-  geom_bar(stat = "identity", position = "dodge") + #to make graph a bar graph and have the bars next to one another
+ggplot(moviegraph, aes(x = production_year, y = count, color = info)) + #to create axes and split the three genres up into their own categories in the legend
+  geom_line() + #to make a trend line
   labs(x = "Year", y = "Number of Movies Produced") #to rename the axes
 ```
 </br><small>GitHub repository[^2]</small>
