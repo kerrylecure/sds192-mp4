@@ -1,7 +1,7 @@
 ---
 title: "Even Superheroes Can't Fight This Movie Trend"
 author: "Kerry LeCure, Libby Leung, Madeleine Hickman"
-date: "`r format(Sys.time())`"
+date: "`r format(Sys.time(), "%B %e, %Y at %H:%M:%S")`"
 output:
   html_document:
     theme: cosmo
